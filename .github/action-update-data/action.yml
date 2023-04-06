@@ -1,0 +1,6 @@
+name: Action update data
+description: Crawl directus and update
+
+runs:
+  using: docker
+  image: Dockerfile
