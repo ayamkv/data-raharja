@@ -5,8 +5,6 @@ on:
     branches:
       - master
   schedule:
-      #- cron: "0 0 1 * *" # UTC
-      # thanks: https://stackoverflow.com/a/16603902
       - cron: '0 0 * * 0'
 
 jobs:
