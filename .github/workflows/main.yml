@@ -1,0 +1,35 @@
+name: Workflow for update data
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+      #- cron: "0 0 1 * *" # UTC
+      # thanks: https://stackoverflow.com/a/16603902
+      - cron: '0 0 * * 0'
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Update adzans
+        uses: ./.github/action-update-data/
+        # env:
+          # JWO_MONTH: '02'
+          # JWO_YEAR: '2021'
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7.0.0
+        with:
+          message: "[gh-actions] update data"
+          author_name: github-actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          push: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
