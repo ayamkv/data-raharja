@@ -1,6 +1,14 @@
-name: Test Workflow for update data
+name: Workflow for update data
 
-on: [workflow_dispatch]
+on:
+  push:
+    branches:
+      - master
+  schedule:
+      #- cron: "0 0 1 * *" # UTC
+      # thanks: https://stackoverflow.com/a/16603902
+      - cron: '0 0 * * 0'
+
 jobs:
   main:
     runs-on: ubuntu-latest
