@@ -14,13 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
-        persist-credentials: true
+        with: 
+          token: ${{ secrets.PAT }}
+          persist-credentials: true
+        uses: actions/checkout@v2
       - name: Update adzans
         uses: ./.github/action-update-data/
-        # env:
-          # JWO_MONTH: '02'
-          # JWO_YEAR: '2021'
       - name: Commit changes
         uses: EndBug/add-and-commit@v7.0.0
         with:
@@ -28,8 +27,6 @@ jobs:
           author_name: ${{ github.actor }}
           author_email: ${{ github.actor }}[bot]@users.noreply.github.com
           push: false
-          token: ${{ secrets.PAT }}
-          
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       - uses: ad-m/github-push-action@master
