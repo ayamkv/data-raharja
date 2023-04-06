@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-      - cron: '0 0 * * 5'
+      - cron: '9 0 * * 4'
 
 jobs:
   main:
@@ -21,9 +21,9 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v7.0.0
         with:
-          message: "[gh-actions] update data"
-          author_name: ${{ github.actor }}
-          author_email: ${{ github.actor }}[bot]@users.noreply.github.com
+          message: "Update Data"
+          author_name: github-actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
           push: false
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
