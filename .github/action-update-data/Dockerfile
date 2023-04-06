@@ -6,4 +6,4 @@ RUN apt-get update; \
 RUN pip install --no-cache-dir \
         requests 
 
-ENTRYPOINT ["python3", "./script/parser.py"]
+ENTRYPOINT ["python3", "./scripts/parser.py"]
