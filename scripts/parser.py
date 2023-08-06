@@ -3,11 +3,11 @@ import json
 import os
 
 def main():
-    url = 'https://ee2poimw.directus.app/items/link'
+    url = 'https://linko.pockethost.io/api/collections/link/records'
     response = requests.get(url)
     data = response.json()
 
-    with open('data.json', 'w') as outfile:
+    with open('data-pb.json', 'w') as outfile:
         json.dump(data, outfile)
 
     print("\nCurrent working dir:")
