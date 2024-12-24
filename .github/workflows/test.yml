@@ -1,5 +1,4 @@
-name: Workflow for update data
-
+name: Workflow for Update 
 on:
   push:
   schedule:
